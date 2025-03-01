@@ -81,21 +81,27 @@ After downloading, place it in the working directory and load it using:
 
 from tensorflow.keras.models import load_model
 model = load_model('plants_diseases_cnn_v1.h5')
+
 🎯 Prediction on New Images
 Use the trained model to predict plant diseases from new images:
 
 
 import numpy as np
+
 from tensorflow.keras.preprocessing import image
 
 test_image_path = "path_to_your_test_image.jpg"
 
 img = image.load_img(test_image_path, target_size=(224, 224))
+
 img = image.img_to_array(img) / 255.0
+
 img = np.expand_dims(img, axis=0)
 
 prediction = model.predict(img)
+
 predicted_class = np.argmax(prediction)
+
 confidence = np.max(prediction) * 100
 
 print(f"Predicted: {list(class_indices.keys())[predicted_class]} | Confidence: {confidence:.2f}%")
@@ -111,8 +117,10 @@ This project is open-source under the MIT License.
 
 💡 Author
 👨‍💻 K Uma Maheshwari
+
 📧 Email: keerthanakrishanamoorthy@gmail.com
-🔗 GitHub: your-github-link
+
+🔗 GitHub: https://github.com/keerthana824
 
 ⭐ Star This Repository!
 If you found this project useful, consider starring 🌟 the repository on GitHub!
